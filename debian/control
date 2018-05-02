@@ -1,0 +1,28 @@
+Source: libcomapp
+Section: libs
+Priority: optional
+Maintainer:  Amish Maske <amish.maske@nokia.com>
+Build-Depends:  debhelper (>= 4.0.0), libgtk2.0-dev, libglib2.0-dev, conbtdialogs-dev, libhildon1-dev, libdbus-glib-1-dev, libosso-dev, libmodest-dbus-client-dev, libhildonfm2-dev (>=2.16.2), libgconf2-dev
+Standards-Version: 3.6.0
+
+Package: libcomapp0
+Architecture: any
+Depends:  hildon-fm-l10n-mr0 | hildon-fm-l10n-mr,  hildon-common-strings-l10n-mr0 |hildon-common-strings-l10n-mr, ${shlibs:Depends}, ${misc:Depends}, ${launcher:Depends}
+Provides: libcomapp
+Conflicts: libcomapp
+Description: OSSO LibComApp library
+ LibComApp what can be used for everywhere needed functions
+
+Package: libcomapp-dev
+Section: devel
+Architecture: all
+Depends: libcomapp0 (= ${Source-Version})
+Description: OSSO LibComApp library development files
+ Development files for libComApp
+
+Package: libcomapp0-dbg
+Architecture: any
+Section: devel
+Depends: libcomapp0 (= ${Source-Version})
+Description: libcomapp debug package
+ Libcomapp debug symbols.

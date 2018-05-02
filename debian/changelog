@@ -1,0 +1,262 @@
+libcomapp (1.8.03-01+0m5) unstable; urgency=low
+
+  * This entry has been added by BIFH queue processor
+    Suffix +0m5 added to package revision
+
+ -- Aravind Venkata <ext-aravind.taduturi@nokia.com>  Thu, 21 Jan 2010 16:16:21 +0200
+
+libcomapp (1.8.03-01) unstable; urgency=low
+
+  * Fixes: NB#151464 Memory leak in callbacks.c
+
+ -- Maske Amish <amish.maske@nokia.com>  Tue,  19 Jan 2010 16:11:00 +0530
+
+libcomapp (1.7.50-1) unstable; urgency=low
+
+  * Fixes: NB#128623 Used pdf document's name is not displayed in the
+    save as dialog on pdf application
+
+ -- Maske Amish <amish.maske@nokia.com>  Thu, 10 Dec 2009 12:11:00 +0530
+
+libcomapp (1.7.49-1) unstable; urgency=low
+
+  * Fixes: NB#135230 <MemLeak> libcomapp-1.6.24/src/comapp_opensave.c 
+  * Fixes: NB#134984 <MemLeak> osso-notes-1.6.33/src/ui/interface.c 
+
+ -- Maske Amish <amish.maske@nokia.com>  Thu, 03 Dec 2009 15:05:00 +0530
+
+libcomapp (1.6.36-2) unstable; urgency=low
+
+  * Fixes: NB#130703 [PATCH] libcomapp: the folder path get corrupted for the
+    file open dialog
+
+ -- Maske Amish <amish.maske@nokia.com>  Thu, 03 Sep 2009 13:00:00 +0530
+
+libcomapp (1.6.24-2) unstable; urgency=low
+
+  * Changes made in control file.added libhildonfm2-dev (>=2.16.2).
+
+ -- Maske Amish <amish.maske@nokia.com>  Tue, 09 Jun 2009 12:20:00 +0530
+
+libcomapp (1.6.24-1) unstable; urgency=low
+
+  * Fixes: NB#94597 some times common tab shown empty and also note tab shown
+    incorrect details in details dialog in notes.
+  
+ -- Maske Amish <amish.maske@nokia.com>  Mon, 08 Jun 2009 15:30:00 +0530
+
+libcomapp (1.6.20-1) unstable; urgency=low
+
+  * Fixes: NB#100728 sketch application Not getting shutdown signal
+    (osso_hw_set_event_cb)
+  
+ -- Maske Amish <amish.maske@nokia.com>  Fri, 08 May 2009 23:30:00 +0530
+
+libcomapp (1.6.15-2) unstable; urgency=low
+
+  * better handling of mime_open 
+
+ -- Maske Amish <amish.maske@nokia.com>  Thu, 09 Apr 2009 23:30:00 +0530
+
+libcomapp (1.6.15-1) unstable; urgency=low
+
+  * Fixes: NB#105223 calulator application crashed after opening unsupported file
+    from file manager 
+
+ -- Maske Amish <amish.maske@nokia.com>  Tue, 07 Apr 2009 23:30:00 +0530
+
+libcomapp (1.6.11-3) unstable; urgency=low
+
+  *  Removed hildon-help from configure file.
+
+ -- Sandeep Sundaram <sandeep.sundaram@nokia.com>  Wed, 11 Mar 2009 10:10:00 +0530
+
+libcomapp (1.6.11-2) unstable; urgency=low
+
+  * Remove libhildonhelp-dev.
+  * Updated application mainintainer name.
+
+ -- Sandeep Sundaram <sandeep.sundaram@nokia.com>  Wed, 11 Mar 2009 10:10:00 +0530
+
+libcomapp (1.6.11-1) unstable; urgency=low
+
+  * Fixes: NB#101937 : Notes,Sketch and pdf reader applications are crashed,if
+    the user try to open unsupported files.
+
+ -- Sandeep Sundaram <sandeep.sundaram@nokia.com>  Mon, 09 Mar 2009 10:30:00 +0530
+
+libcomapp (1.6.08-1) unstable; urgency=low
+
+  * Fixes: NB#100962 sketch application crashed, if the user taps on "No"
+    button on the save confirmation dialog
+
+ -- Sandeep Sundaram <sandeep.sundaram@nokia.com>  Mon, 09 Feb 2009 16:00:00 +0530
+
+libcomapp (1.6.07-1) unstable; urgency=low
+
+  * removed the old logical id and used the new related to read only location 
+
+ -- Sandeep Sundaram <sandeep.sundaram@nokia.com>  Wed, 04 Feb 2009 14:00:00 +0530
+
+libcomapp (1.6.04-1) unstable; urgency=low
+
+  * Added hildon-common-strings-l10n-mr0 |hildon-common-strings-l10n-mr dependencies 
+
+ -- Sandeep Sundaram <sandeep.sundaram@nokia.com>  Tue, 13 Jan 2009 17:50:38 +0530
+
+libcomapp (1.5.51-1) unstable; urgency=low
+
+  * Added hildon-fm-l10-mr | hildon-fm-l10-mr0 dependencies 
+
+ -- Sandeep Sundaram <sandeep.sundaram@nokia.com>  Wed, 17 Dec 2008 11:50:38 +0530
+
+libcomapp (1.5.40-1) unstable; urgency=low
+
+  * Removed warnings
+
+ -- Sandeep Sundaram <sandeep.sundaram@nokia.com>  Tue, 30 Sep 2008 12:50:38 +0530
+
+libcomapp (1.5.36-0) unstable; urgency=low
+
+  * stable code base for the new tool chain and SDK. 
+
+ -- Sandeep Sundaram <sandeep.sundaram@nokia.com>  Fri, 29 Aug 2008 15:09:38 +0530
+
+libcomapp (1.5.18-0) unstable; urgency=low
+
+  * Using libmodest-dbus-client instead of ossoemailinterface 
+
+ -- Qureshi Ahmad <Ahmad.Qureshi@nokia.com>  Mon, 28 Apr 2008 15:09:38 +0200
+
+libcomapp (1.5.14-0) unstable; urgency=low
+
+  * Fixes: NB#82687 Notes is crashing while saving in a corrupted MMC
+
+ -- Qureshi Ahmad <Ahmad.Qureshi@nokia.com>  Mon, 31 Mar 2008 11:37:23 +0200
+
+libcomapp (1.5.12-0) unstable; urgency=low
+
+  * Fixes: NB#80332 Default Folder to Save a note is "Device Root folder"
+
+ -- Qureshi Ahmad <Ahmad.Qureshi@nokia.com>  Tue, 11 Mar 2008 14:47:04 +0200
+
+libcomapp (1.5.05-0) unstable; urgency=low
+
+  * Fixes: NB#77319 Notes crashes as open note dialog opens after Notes is closed
+  * Fixes: NB#77163 Not able to save the sketch file to device memory
+
+ -- Qureshi Ahmad <Ahmad.Qureshi@nokia.com>  Wed, 23 Jan 2008 14:47:04 +0200
+
+libcomapp (1.4.42-0) unstable; urgency=low
+
+  * Fixes: NB#70963 Notes; "Unable to save" to device memory
+  * Fixes: NB#72845 Saving files to  SMB subfolder becoming read only
+
+ -- Qureshi Ahmad <Ahmad.Qureshi@nokia.com>  Fri, 12 Oct 2007 10:07:55 +0200
+
+libcomapp (1.4.38-0) unstable; urgency=low
+
+  * Destroy opensave dialog on response
+  * Small fixes to recovery
+  * Fixes: NB#58081 Nothing is happening when tapping on send via bluetooth when
+    memory is full
+
+ -- Qureshi Ahmad <Ahmad.Qureshi@nokia.com>  Tue, 11 Sep 2007 10:05:04 +0300
+
+libcomapp (1.4.37-0) unstable; urgency=low
+
+  * NULL checks added to mime open
+
+ -- Qureshi Ahmad <Ahmad.Qureshi@nokia.com>  Fri,  7 Sep 2007 10:58:47 +0300
+
+libcomapp (1.4.36-0) unstable; urgency=low
+
+  * Use destroy signal in opensave_response instead of cancel response
+
+ -- Qureshi Ahmad <Ahmad.Qureshi@nokia.com>  Mon,  3 Sep 2007 11:56:32 +0300
+
+libcomapp (1.4.35-0) unstable; urgency=low
+
+  * Fixes: NB#60492 Save as dialog shows inconsistent behavior when a folder in shared media is selected
+  * Opensave dialog doesn't allow to choose files without write access in save mode
+
+ -- Qureshi Ahmad <Ahmad.Qureshi@nokia.com>  Wed, 22 Aug 2007 12:56:29 +0300
+
+libcomapp (1.4.34-0) unstable; urgency=low
+
+  * Remove critical debug output
+
+ -- Qureshi Ahmad <Ahmad.Qureshi@nokia.com>  Tue, 14 Aug 2007 15:52:13 +0300
+
+libcomapp (1.4.32-0) unstable; urgency=low
+
+  * Fixes: NB#64960 Dimmed Recent list should be enabled automatically once document is zoomed/opened
+
+ -- Qureshi Ahmad <Ahmad.Qureshi@nokia.com>  Mon,  6 Aug 2007 10:16:56 +0300
+
+libcomapp (1.4.31-0) unstable; urgency=low
+
+  * Fixes: NB#63804 Info" File was saved automatically when device switch off" is not displaying.
+  * Fixes: NB#64245 libcomapp-1.4.22-0 license issues
+  * Add API to make files in recent menu insensitive
+
+ -- Qureshi Ahmad <Ahmad.Qureshi@nokia.com>  Wed, 25 Jul 2007 17:27:38 +0300
+
+libcomapp (1.4.27-2) unstable; urgency=low
+
+  * added conflicts line
+
+ -- Qureshi Ahmad <Ahmad.Qureshi@nokia.com>  Wed,  4 Jul 2007 19:11:45 +0300
+
+libcomapp (1.4.27-1) unstable; urgency=low
+
+  * added Provides: to debian/control
+
+ -- Qureshi Ahmad <Ahmad.Qureshi@nokia.com>  Wed,  4 Jul 2007 18:07:01 +0300
+
+libcomapp (1.4.27-0) unstable; urgency=low
+
+  * binary package name changed: libcomapp0
+  * new sendvia api functions (old still supported)
+  * Fixes: NB#61777 libcomapp should not use invalid iterator if hildon_file_system_model_load_uri fails
+
+ -- Qureshi Ahmad <Ahmad.Qureshi@nokia.com>  Mon, 25 Jun 2007 14:23:48 +0300
+
+libcomapp (1.4.25-0) unstable; urgency=low
+
+  * make comapp_recent work with remote uri's
+
+ -- Qureshi Ahmad <Ahmad.Qureshi@nokia.com>  Mon, 18 Jun 2007 11:03:58 +0300
+
+libcomapp (1.4.24-0) unstable; urgency=low
+
+  * hildon-help consolidation
+
+ -- Qureshi Ahmad <Ahmad.Qureshi@nokia.com>  Wed, 13 Jun 2007 16:19:52 +0300
+
+libcomapp (1.4.22-0) unstable; urgency=low
+
+  * fixed save_unsaved_data notification (it did quit, now it does not)
+  * Fixes: NB#57914 Pdf viewer crashes after the sleep mode
+  * Fixes: NB#58060 Sketch application crashes after the sleep mode
+  * Fixes: NB#58753 Calculator is crashed on keeping device ideal for 5 minutes
+
+ -- Qureshi Ahmad <Ahmad.Qureshi@nokia.com>  Tue, 22 May 2007 14:05:24 +0300
+
+libcomapp (1.4.21-0) unstable; urgency=low
+
+  * debian dir cleanup
+
+ -- Qureshi Ahmad <Ahmad.Qureshi@nokia.com>  Mon, 21 May 2007 16:09:39 +0300
+
+libcomapp (1.4.21-0) unstable; urgency=low
+
+  * bugfix in comapp_system
+
+ -- Qureshi Ahmad <Ahmad.Qureshi@nokia.com>  Tue, 15 May 2007 16:07:06 +0300
+
+libcomapp (1.4.20-0) unstable; urgency=low
+
+  * First 1.1 release
+  
+ -- Qureshi Ahmad <Ahmad.Qureshi@nokia.com>  Mon, 12 Mar 2007 12:50:46 +0300
