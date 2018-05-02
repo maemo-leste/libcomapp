@@ -1,8 +1,8 @@
 Source: libcomapp
 Section: libs
 Priority: optional
-Maintainer:  Amish Maske <amish.maske@nokia.com>
-Build-Depends:  debhelper (>= 4.0.0), libgtk2.0-dev, libglib2.0-dev, conbtdialogs-dev, libhildon1-dev, libdbus-glib-1-dev, libosso-dev, libmodest-dbus-client-dev, libhildonfm2-dev (>=2.16.2), libgconf2-dev
+Maintainer: Ivan J. <parazyd@dyne.org>
+Build-Depends:  debhelper (>= 9), libgtk2.0-dev, libglib2.0-dev, conbtdialogs-dev, libhildon1-dev, libdbus-glib-1-dev, libosso-dev, libmodest-dbus-client-dev, libhildonfm2-dev (>=2.16.2), libgconf2-dev
 Standards-Version: 3.6.0
 
 Package: libcomapp0
@@ -16,13 +16,6 @@ Description: OSSO LibComApp library
 Package: libcomapp-dev
 Section: devel
 Architecture: all
-Depends: libcomapp0 (= ${Source-Version})
+Depends: libcomapp0 (= ${source:Version})
 Description: OSSO LibComApp library development files
  Development files for libComApp
-
-Package: libcomapp0-dbg
-Architecture: any
-Section: devel
-Depends: libcomapp0 (= ${Source-Version})
-Description: libcomapp debug package
- Libcomapp debug symbols.
