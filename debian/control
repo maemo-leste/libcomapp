@@ -2,7 +2,7 @@ Source: libcomapp
 Section: libs
 Priority: optional
 Maintainer: Ivan J. <parazyd@dyne.org>
-Build-Depends:  debhelper (>= 9), libgtk2.0-dev, libglib2.0-dev, conbtdialogs-dev, libhildon1-dev, libdbus-glib-1-dev, libosso-dev, libmodest-dbus-client-dev, libhildonfm2-dev (>=2.16.2), libgconf2-dev
+Build-Depends:  debhelper (>= 9), libgtk2.0-dev, libglib2.0-dev, conbtdialogs-dev, libhildon1-dev, libdbus-glib-1-dev, libosso-dev, libmodest-dbus-client-dev, libhildonfm2-dev (>=2.16.2), libgconf2-dev, libgnomevfs2-dev
 Standards-Version: 3.6.0
 
 Package: libcomapp0
