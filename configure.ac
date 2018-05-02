@@ -16,8 +16,8 @@ AC_PROG_LIBTOOL
 
 CFLAGS="$CFLAGS -Werror -Wall -Wmissing-prototypes -Wmissing-declarations"
 
-PKG_CHECK_MODULES(PACKAGE, [gtk+-2.0 >= 2.0.0 glib-2.0 >= 2.0.0 gobject-2.0
-hildon-1 gnome-vfs-2.0 dbus-glib-1 dbus-1 conbtdialogs libmodest-dbus-client-1.0 libosso
+PKG_CHECK_MODULES(PACKAGE, [gtk+-2.0 >= 2.0.0 glib-2.0 >= 2.0.0 gobject-2.0 \
+hildon-1 gnome-vfs-2.0 dbus-glib-1 dbus-1 conbtdialogs libmodest-dbus-client-1.0 libosso \
 hildon-fm-2 >= 0.8.1 gconf-2.0 >= 2.16.0 ])
 AC_SUBST(PACKAGE_CFLAGS)
 AC_SUBST(PACKAGE_LIBS)
