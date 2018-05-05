@@ -1,6 +1,6 @@
 /* LibComApp
  *
- * Copyright (C) 2007 Nokia Corporation. 
+ * Copyright (C) 2007 Nokia Corporation.
  *
  * Contact: Ahmad Qureshi <Ahmad.Qureshi@nokia.com>
  *
@@ -26,7 +26,7 @@
 #include <conbtdialogs-dbus.h>
 #include <libmodest-dbus-client/libmodest-dbus-client.h>
 #include <hildon/hildon-banner.h>
-#include <hildon/hildon-helper.h> 
+#include <hildon/hildon-helper.h>
 #include <gtk/gtk.h>
 #include <glib.h>
 #include <string.h>
@@ -193,7 +193,7 @@ comapp_sendvia_create_menu_item(comapp_save_file_cb * save_cb,
 {
     GtkMenuItem * send_menu_item;
     ComappSendviaMenu * ret;
-    
+
     g_assert( save_cb != NULL && osso != NULL );
 
     send_menu_item = GTK_MENU_ITEM(gtk_menu_item_new_with_label(_(MSG_SEND)));
@@ -201,7 +201,7 @@ comapp_sendvia_create_menu_item(comapp_save_file_cb * save_cb,
 	ret = comapp_sendvia_connect_menu_to_item( send_menu_item, save_cb,
 		parent_widget, osso, user_data );
 
-	/* Set pointer to pointer */		
+	/* Set pointer to pointer */
 	if( menu_data != NULL ) {
 		*menu_data = ret;
 	}
@@ -234,16 +234,16 @@ ComappSendviaMenu *comapp_sendvia_connect_menu_to_item( GtkMenuItem * send_menu_
     gtk_menu_item_set_submenu(send_menu_item, GTK_WIDGET(send_menu));
     gtk_menu_append(send_menu, GTK_WIDGET( sendvia_data->menu.email_item ));
     gtk_menu_append(send_menu, GTK_WIDGET( sendvia_data->menu.bluetooth_item ));
-            
+
     /* Connect delete event signal (to free memory alloced here) */
     g_signal_connect( G_OBJECT( send_menu ), "delete_event",
     	G_CALLBACK( comapp_sendvia_menu_item_destroyed ), sendvia_data );
-    	
+
     /* Show menu and it's all widgets */
     gtk_widget_show_all( GTK_WIDGET( send_menu ) );
 
     return &( sendvia_data->menu );
-													
+
 }
 
 
@@ -251,10 +251,10 @@ static gboolean comapp_sendvia_menu_item_destroyed( GtkWidget * widget,
 	GdkEvent * event, gpointer user_data ) {
 
 	ComappSendviaData * sendvia_data = ( ComappSendviaData * ) user_data;
-	
+
 	/* Free Sendvia data as it's not used anymore */
 	g_free( sendvia_data );
-	
+
 	/* Let menu to be destroyed */
 	return FALSE;
 }
@@ -265,44 +265,44 @@ void compapp_sendvia_set_all_menu_items_sensitive( ComappSendviaMenu * menu_data
 	if( menu_data->email_item == NULL || menu_data->bluetooth_item == NULL ) {
 		g_warning( "%s: Null pointers in Sendvia menu data", __FUNCTION__ );
 	}
-	
+
 	gtk_widget_set_sensitive( GTK_WIDGET( menu_data->email_item ), sensitive );
-	gtk_widget_set_sensitive( GTK_WIDGET( menu_data->bluetooth_item ), sensitive );	
-                                                 
+	gtk_widget_set_sensitive( GTK_WIDGET( menu_data->bluetooth_item ), sensitive );
+
 }
 
 void compapp_sendvia_set_menu_item_sensitive( ComappSendviaMenu * menu_data,
 	const gchar * item, gboolean sensitive ) {
-	
+
 	GtkWidget * widget;
 	g_assert( menu_data != NULL && item != NULL );
-	
+
 	widget = GTK_WIDGET( compapp_sendvia_get_menu_item( menu_data,
-		item ) );	
-	
+		item ) );
+
 	if( widget != NULL ) {
-		gtk_widget_set_sensitive( widget, sensitive );	
+		gtk_widget_set_sensitive( widget, sensitive );
 	}
-		
-}      
+
+}
 
 void compapp_sendvia_set_insensitive_message( ComappSendviaMenu * menu_data,
 	const gchar * item, const gchar * message ) {
-	
+
 	GtkWidget * widget;
 	g_assert( menu_data != NULL && item != NULL && message != NULL );
-	
+
 	widget = GTK_WIDGET( compapp_sendvia_get_menu_item( menu_data,
 		item ) );
-		
+
 	if( widget != NULL ) {
-		hildon_helper_set_insensitive_message( widget, message );	
+		hildon_helper_set_insensitive_message( widget, message );
 	}
-}  
+}
 
 static GtkMenuItem * compapp_sendvia_get_menu_item( ComappSendviaMenu * menu_data,
 	const gchar * item ) {
-	
+
 	if( strcmp( item, COMAPP_SENDVIA_EMAIL_ITEM ) == 0 ) {
 		return menu_data->email_item;
 	} else if( strcmp( item, COMAPP_SENDVIA_BLUETOOTH_ITEM ) == 0 ) {
@@ -311,5 +311,5 @@ static GtkMenuItem * compapp_sendvia_get_menu_item( ComappSendviaMenu * menu_dat
 		g_warning( "%s: Invalid item string '%s'", __FUNCTION__, item );
 		return NULL;
 	}
-}                                 
+}
 

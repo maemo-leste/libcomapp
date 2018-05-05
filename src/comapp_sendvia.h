@@ -1,6 +1,6 @@
 /* LibComApp
  *
- * Copyright (C) 2007 Nokia Corporation. 
+ * Copyright (C) 2007 Nokia Corporation.
  *
  * Contact: Ahmad Qureshi <Ahmad.Qureshi@nokia.com>
  *
@@ -105,7 +105,7 @@ GtkWidget *comapp_sendvia_create_main_menu(comapp_save_file_cb * save_cb,
                                            GtkWidget * parent_widget,
                                            osso_context_t * osso,
                                            gpointer user_data);
-                                           
+
 
 /**
  * Creates a GtkMenuItem, which has a submenu, what contains the "Send via Bluetooth.."
@@ -113,7 +113,7 @@ GtkWidget *comapp_sendvia_create_main_menu(comapp_save_file_cb * save_cb,
  * function that creates the menu item. If you have send menu item defined in application
  * then use the other function.
  *
- * @see comapp_sendvia_connect_menu_to_item 
+ * @see comapp_sendvia_connect_menu_to_item
  * @param save_cb Called when the item is selected. This will save the file if needed, and this will return the uri of the save file
  * @param parent_widget needed for the "Send via e-mail...". The widget which will be the parent widget of the error infoprint if needed
  * @param osso the valid osso_context_t
@@ -136,20 +136,20 @@ GtkWidget *comapp_sendvia_create_menu_item( comapp_save_file_cb * save_cb,
  * @param osso the valid osso_context_t
  * @param user_data user data, what will be passed to the save_cb function
  * @return menu data pointer used with menu functions (valid until menu is destroyed)
- */                                          
+ */
 ComappSendviaMenu *comapp_sendvia_connect_menu_to_item( GtkMenuItem * send_menu_item,
 														comapp_save_file_cb * save_cb,
 														GtkWidget * parent_widget,
 														osso_context_t * osso,
 														gpointer user_data);
-                                                        
+
 
 /**
  * Set sensitivity of all Sendvia submenu items
  *
  * @param menu_data pointer to menu data struct reveived from comapp_sendvia_create_menu_item (not NULL)
  * @param sentive boolean value of sentivity
- */                                                 
+ */
 void compapp_sendvia_set_all_menu_items_sensitive( ComappSendviaMenu * menu_data,
                                                  gboolean sensitive );
 
@@ -159,22 +159,22 @@ void compapp_sendvia_set_all_menu_items_sensitive( ComappSendviaMenu * menu_data
  * @param menu_data pointer to menu data struct reveived from comapp_sendvia_create_menu_item (not NULL)
  * @param item identify string of item
  * @param sentive boolean value of sentivity
- */                                                 
+ */
 void compapp_sendvia_set_menu_item_sensitive( ComappSendviaMenu * menu_data,
 	const gchar * item, gboolean sensitive );
 
-                                                 
+
 /**
  * Set insensive message to item in Sendvia menu
  *
  * @param menu_data pointer to menu data struct reveived from comapp_sendvia_create_menu_item (not NULL)
  * @param item identify string of item
  * @param message message shown with this item
- */                                                 
+ */
 void compapp_sendvia_set_insensitive_message( ComappSendviaMenu * menu_data,
 	const gchar * item, const gchar * message );
 
-                                       
+
 
 G_END_DECLS
 #endif /* __COMAPP_RECENT_H__ */
