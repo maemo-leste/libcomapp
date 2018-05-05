@@ -1,3 +1,10 @@
+libcomapp (1.8.04) unstable; urgency=medium
+
+  * Disable modest and conbtui.
+  * Initial Maemo Leste packaging
+
+ -- Ivan J. <parazyd@dyne.org>  Sat, 05 May 2018 13:35:00 +0200
+
 libcomapp (1.8.03-01+0m5) unstable; urgency=low
 
   * This entry has been added by BIFH queue processor
