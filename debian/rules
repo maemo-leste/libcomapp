@@ -20,5 +20,8 @@ endif
 #	  MAEMO_LAUNCHER_CFLAGS="$(LAUNCHER_CFLAGS)" \
 #	  MAEMO_LAUNCHER_LDFLAGS="$(LAUNCHER_LDFLAGS)"
 
+override_dh_auto_test:
+	@echo " * dh_auto_test disabled."
+
 %:
 	dh $@ --with autoreconf
