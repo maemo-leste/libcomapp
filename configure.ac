@@ -1,4 +1,4 @@
-AC_INIT([libcomapp], [1.4.26-0])
+AC_INIT([libcomapp], [1.8.04])
 AM_INIT_AUTOMAKE([foreign])
 AM_MAINTAINER_MODE
 AM_CONFIG_HEADER([config.h])
