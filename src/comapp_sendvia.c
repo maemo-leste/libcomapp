@@ -23,8 +23,8 @@
 #include "comapp_sendvia.h"
 #include "comapp_i18n.h"
 #include <dbus/dbus-glib.h>
-#include <conbtdialogs-dbus.h>
-#include <libmodest-dbus-client/libmodest-dbus-client.h>
+//#include <conbtdialogs-dbus.h>
+//#include <libmodest-dbus-client/libmodest-dbus-client.h>
 #include <hildon/hildon-banner.h>
 #include <hildon/hildon-helper.h>
 #include <gtk/gtk.h>
@@ -45,6 +45,7 @@ static GtkMenuItem * compapp_sendvia_get_menu_item( ComappSendviaMenu * menu_dat
 gboolean
 comapp_sendvia_bluetooth(gchar * path, GtkWidget * parent_widget)
 {
+#if 0
     DBusGProxy *proxy = NULL;
     DBusGConnection *sys_conn = NULL;
     GError *error = NULL;
@@ -84,6 +85,9 @@ comapp_sendvia_bluetooth(gchar * path, GtkWidget * parent_widget)
                                        dgettext("hildon-common-strings","sfil_ni_operation_failed"));
     }
     return result;
+#else
+	return TRUE;
+#endif
 }
 
 gboolean
@@ -98,9 +102,9 @@ comapp_sendvia_email(GtkWidget * parent_widget, osso_context_t * osso,
     uri = g_strdup(path);
     list = g_slist_append(list, uri);
 
-    ret = libmodest_dbus_client_compose_mail(osso, NULL /* to */,
-                NULL /* cc */, NULL /* bcc */, NULL /* subject */,
-                NULL /* body */, list /* attachments */);
+    //ret = libmodest_dbus_client_compose_mail(osso, NULL /* to */,
+    //            NULL /* cc */, NULL /* bcc */, NULL /* subject */,
+    //            NULL /* body */, list /* attachments */);
 
     g_slist_free(list);
     g_free(uri);
