@@ -1,4 +1,4 @@
-libcomapp (1.8.04-1) unstable; urgency=medium
+libcomapp (1.8.05) unstable; urgency=medium
 
   * Fix build of -dev package
 
