@@ -1,2 +1,3 @@
+usr/lib/*/*.so
 usr/lib/*/pkgconfig/comapp.pc
 usr/include/@PACKAGE_INC@/*.h
