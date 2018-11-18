@@ -15,7 +15,7 @@ Description: OSSO LibComApp library
 
 Package: libcomapp-dev
 Section: devel
-Architecture: all
+Architecture: any
 Depends: libcomapp0 (= ${source:Version})
 Description: OSSO LibComApp library development files
  Development files for libComApp
