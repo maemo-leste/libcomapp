@@ -183,7 +183,9 @@ comapp_system_init(ComappSystemData * data)
 
     if (!data->gc_client)
     {
+#if !GLIB_CHECK_VERSION (2,35,0)
         g_type_init();
+#endif
         data->gc_client = gconf_client_get_default();
     }
     if (!data->osso)

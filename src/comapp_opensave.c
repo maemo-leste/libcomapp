@@ -195,8 +195,9 @@ comapp_opensave_check_location_mounted(ComappOpenSave * data)
     gchar * mmcprefix  = NULL;
     gchar * oldmmcprefix = NULL;
     GConfClient *gc_client = NULL;
-
+#if !GLIB_CHECK_VERSION (2,35,0)
     g_type_init();
+#endif
     gc_client = gconf_client_get_default();
 
     /* If the target is not on the mmc card, return TRUE */
