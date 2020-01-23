@@ -23,7 +23,8 @@
 #include "comapp_opensave.h"
 #include "comapp_common.h"
 #include "comapp_i18n.h"
-#include <libgnomevfs/gnome-vfs.h>
+#include <string.h>
+#include <gio/gio.h>
 #include <hildon/hildon-helper.h>
 #include <hildon/hildon-file-chooser-dialog.h>
 #include <hildon/hildon-file-selection.h>
@@ -36,6 +37,79 @@
 static gboolean comapp_opensave_check_write_access(ComappOpenSave * data);
 static gboolean comapp_opensave_check_location_mounted(ComappOpenSave * data);
 
+
+static int
+hex_to_int(gchar c)
+{
+    return  c >= '0' && c <= '9' ? c - '0'
+        : c >= 'A' && c <= 'F' ? c - 'A' + 10
+        : c >= 'a' && c <= 'f' ? c - 'a' + 10
+        : -1;
+}
+
+/*
+ * This is based on gnome_vfs_unescape_string_for_display(), which
+ * is deprecated due to the replacement of gnomevfs -> gvfs.
+ */
+static gchar *
+unescape_string_for_display(const gchar * escaped)
+{
+    const gchar *in, *start_escape;
+    gchar *out, *result;
+    gint i,j;
+    gchar c;
+    gint invalid_escape;
+
+    if (escaped == NULL) {
+        return NULL;
+    }
+
+    result = g_malloc(strlen(escaped) + 1);
+
+    out = result;
+    for (in = escaped; *in != '\0'; ) {
+        start_escape = in;
+        c = *in++;
+        invalid_escape = 0;
+
+        if (c == '%') {
+            /* Get the first hex digit. */
+            i = hex_to_int(*in++);
+            if (i < 0) {
+                invalid_escape = 1;
+                in--;
+            }
+            c = i << 4;
+
+            if (invalid_escape == 0) {
+                /* Get the second hex digit. */
+                i = hex_to_int(*in++);
+                if (i < 0) {
+                    invalid_escape = 2;
+                    in--;
+                }
+                c |= i;
+            }
+            if (invalid_escape == 0) {
+                /* Check for an illegal character. */
+                if (c == '\0') {
+                    invalid_escape = 3;
+                }
+            }
+        }
+        if (invalid_escape != 0) {
+            for (j = 0; j < invalid_escape; j++) {
+                *out++ = *start_escape++;
+            }
+        } else {
+            *out++ = c;
+        }
+    }
+
+    *out = '\0';
+    g_assert(out - result <= strlen(escaped));
+    return result;
+}
 
 ComappOpenSave *
 comapp_opensave_new(ComappOpenSave * data)
@@ -113,7 +187,7 @@ comapp_opensave_new(ComappOpenSave * data)
         gtk_file_chooser_set_current_folder_uri(GTK_FILE_CHOOSER(fc_dialog),
                                                 dir_uri);
     }
-    escaped_name = gnome_vfs_unescape_string_for_display(name);    
+    escaped_name = unescape_string_for_display(name);
     if (HILDON_IS_FILE_CHOOSER_DIALOG(fc_dialog))
     {
         gtk_file_chooser_set_current_name(GTK_FILE_CHOOSER(fc_dialog),
@@ -248,22 +322,24 @@ comapp_opensave_check_location_mounted(ComappOpenSave * data)
 static gboolean
 comapp_opensave_check_write_access(ComappOpenSave * data)
 {
-    GnomeVFSFileInfo* folder_info = gnome_vfs_file_info_new();
-    gchar * folder = g_path_get_dirname( data->result_uri );
-    gboolean write_acc = TRUE;
+    gchar *folder = g_path_get_dirname(data->result_uri);
+    GFile *g_folder = g_file_new_for_path(folder);
+    gboolean write_acc = FALSE;
 
-    gnome_vfs_get_file_info( folder, folder_info,
-		GNOME_VFS_FILE_INFO_GET_ACCESS_RIGHTS);
-    g_free( folder );
-    
-   if (folder_info->valid_fields&GNOME_VFS_FILE_INFO_FIELDS_PERMISSIONS)
-   {
-        write_acc=(folder_info->permissions & GNOME_VFS_PERM_ACCESS_WRITABLE) ||
-          (folder_info->permissions & GNOME_VFS_PERM_USER_WRITE);
-   }
-   
- /* Free the folder info */
-    gnome_vfs_file_info_unref(folder_info);
+    GFileInfo *folder_info = g_file_query_info(g_folder,
+                                              G_FILE_ATTRIBUTE_ACCESS_CAN_WRITE,
+                                              G_FILE_QUERY_INFO_NONE,
+                                              NULL, NULL);
+
+    if (folder_info) {
+        write_acc = g_file_info_get_attribute_boolean(folder_info,
+                                              G_FILE_ATTRIBUTE_ACCESS_CAN_WRITE);
+        g_object_unref(folder_info);
+    }
+
+    g_object_unref(g_folder);
+    g_free(folder);
+
     return write_acc;
 }
 

@@ -22,10 +22,6 @@
 #include "comapp_system.h"
 
 #include <osso-log.h>
-#include <libgnomevfs/gnome-vfs-mime.h>
-#include <libgnomevfs/gnome-vfs-utils.h>
-
-
 #include <signal.h>
 
 #define COMAPP_SYSTEM_CLOSESTATE_GCONF "/apps/osso/libcomapp/"

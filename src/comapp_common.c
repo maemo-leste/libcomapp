@@ -21,7 +21,7 @@
 
 
 #include "comapp_common.h"
-#include <libgnomevfs/gnome-vfs.h>
+#include <glib.h>
 #include <string.h>
 
 HildonFileSystemModel *
@@ -65,7 +65,7 @@ comapp_common_get_display_name(const gchar * uri, gchar ** extension,
 
     g_assert(uri);
 
-    unescaped_str = gnome_vfs_unescape_string(uri, NULL);
+    unescaped_str = g_uri_unescape_string(uri, NULL);
     bname = g_path_get_basename(unescaped_str);
     g_free(unescaped_str);
     if (extension)

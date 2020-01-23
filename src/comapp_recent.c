@@ -38,7 +38,6 @@
 #include <hildon/hildon-helper.h>
 #include <string.h>
 #include "comapp_i18n.h"
-#include <libgnomevfs/gnome-vfs.h>
 #include "comapp_recent.h"
 #include "comapp_recent_private.h"
 #include "comapp_common.h"
@@ -538,9 +537,11 @@ comapp_recent_add_new_item(ComappRecent * recent_widget, const gchar * uri)
     {
         gboolean add_ret_val;
 	GtkRecentData recent_data = { 0 };
-	
-	gchar *really_uri = gnome_vfs_make_uri_from_input(uri);
-	
+
+	GFile *file = g_file_new_for_commandline_arg(uri);
+	gchar *really_uri = g_file_get_uri(file);
+	g_object_unref(file);
+
         recent_data.display_name =
             comapp_common_get_display_name(really_uri,
                                            recent_widget->recentprivate->
